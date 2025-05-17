@@ -192,3 +192,6 @@ project-2-data-analysis-trading-strategies/notebooks/JPMC Casestudy.ipynb
 project-2-data-analysis-trading-strategies/notebooks/Data Intel Project - Data Only.xlsx
 project-2-data-analysis-trading-strategies/notebooks/concatenated_data.csv
 project-2-data-analysis-trading-strategies/notebooks/exported_data.csv
+
+lambda_package/
+file_upload_function.zip

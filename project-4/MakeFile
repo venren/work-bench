@@ -1,0 +1,25 @@
+# Makefile
+FUNCTION_NAME = file_upload_function
+ZIP_FILE = $(FUNCTION_NAME).zip
+SOURCE_FILES = download_file.py  # Add other source files here
+REQUIREMENTS = requirements.txt
+PYTHON_VERSION = 3.9  # Adjust to your Python version
+VENV_DIR = .venv
+
+.PHONY: all clean zip install
+
+all: zip
+
+install:
+    python -m venv $(VENV_DIR)
+    $(VENV_DIR)/bin/pip install -r $(REQUIREMENTS)
+
+zip: install
+    mkdir -p package
+    cp $(SOURCE_FILES) package/
+    cp -r $(VENV_DIR)/lib/python$(PYTHON_VERSION)/site-packages/* package/
+    cd package && zip -r ../$(ZIP_FILE) . && cd ..
+    rm -rf package
+
+clean:
+    rm -rf $(VENV_DIR) $(ZIP_FILE) package
